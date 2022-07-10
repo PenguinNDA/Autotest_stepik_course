@@ -5,3 +5,11 @@ class MainPageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_FORM = (By.CSS_SELECTOR, ".login_form")
     REGISTER_FORM = (By.CSS_SELECTOR, ".register_form")
+
+
+class ProductPageLocators:
+    BASKET_BUTTON = (By.CSS_SELECTOR, ".btn.btn-add-to-basket")
+    BOOK_NAME = (By.CSS_SELECTOR, ".product_main h1")
+    BOOK_PRICE = (By.CSS_SELECTOR, ".product_main .price_color")
+    BOOK_NAME_AFTER_ADD = (By.CSS_SELECTOR, ".alert:nth-of-type(1)")
+    BOOK_PRICE_AFTER_ADD = (By.CSS_SELECTOR, ".alert:nth-of-type(3)")
