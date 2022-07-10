@@ -24,5 +24,5 @@ class ProductPage(BasePage):
 		self.browser.implicitly_wait(10)
 		book_name = self.browser.find_element(*ProductPageLocators.BOOK_NAME)
 		book_name_after_add = self.browser.find_element(*ProductPageLocators.BOOK_NAME_AFTER_ADD)
-		assert book_name.text in book_name_after_add.text, "Names is not equal"
+		assert book_name.text == book_name_after_add.text, "Names is not equal"
 		print(f"Name {book_name.text} is equal to {book_name_after_add.text}")
