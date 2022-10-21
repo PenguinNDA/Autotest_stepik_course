@@ -11,6 +11,7 @@ class ProductPage(BasePage):
 		print("\nFind button")
 		button.click()
 		print("\nClick button")
+		time.sleep(1)
 		BasePage.solve_quiz_and_get_code(self)
 
 	def compare_prices(self):
