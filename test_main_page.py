@@ -2,7 +2,7 @@ import pytest
 from .pages.main_page import MainPage
 from .pages.login_page import LoginPage
 from .pages.basket_page import BasketPage
-from .pages.locators import BasketPageLocators
+
 
 @pytest.mark.login_guest
 class TestLoginFromMainPage:
@@ -29,5 +29,5 @@ def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     page = MainPage(browser, link)                          # Initialize page object
     page.open()
     page.go_to_basket_page()
-    basketPage = BasketPage(browser, browser.current_url)
-    assert basketPage.is_not_goods_present(*BasketPageLocators.NO_GOODS_IN_BAKSET), "We have some goods in basket"
+    basket_page = BasketPage(browser, browser.current_url)
+    basket_page.is_not_goods_in_basket()

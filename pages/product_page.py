@@ -27,3 +27,9 @@ class ProductPage(BasePage):
 		book_name_after_add = self.browser.find_element(*ProductPageLocators.BOOK_NAME_AFTER_ADD)
 		assert book_name.text == book_name_after_add.text, "Names is not equal"
 		print(f"Name {book_name.text} is equal to {book_name_after_add.text}")
+
+	def is_book_name_after_add_present(self):
+		assert self.is_not_element_present(*ProductPageLocators.BOOK_NAME_AFTER_ADD), "Book name is incorrect"
+
+	def is_book_name_disappeared_after_add(self):
+		assert self.is_disappeared(*ProductPageLocators.BOOK_NAME_AFTER_ADD), "Book name is incorrect"

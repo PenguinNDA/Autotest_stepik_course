@@ -26,3 +26,6 @@ class BasketPage(BasePage):
         empty_basket_text = self.browser.find_element(*BasketPageLocators.EMPTY_BASKET_TEXT)
         assert empty_basket_text.text == "Ваша корзина пуста", "Names is not equal"
         print(f"Name {empty_basket_text.text} is equal to 'Ваша корзина пуста'")
+
+    def is_not_goods_in_basket(self):
+        self.is_not_goods_present(*BasketPageLocators.NO_GOODS_IN_BAKSET), "We have some goods in basket"
