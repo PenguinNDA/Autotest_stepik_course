@@ -24,8 +24,9 @@ class BasePageLocators:
 
 
 class BasketPageLocators:
-    EMPTY_BASKET_TEXT = (By.CSS_SELECTOR, '//*[@id="content_inner"]/p/text()')
+    EMPTY_BASKET_TEXT = (By.XPATH, '//*[@id="content_inner"]/p/text()')
     NO_GOODS_IN_BAKSET = (By.CSS_SELECTOR, ".basket-items")
+    REMOVE_BUTTON = (By.XPATH, "//*[@class='inline']")
 
 
 class LoginPageLocators:
@@ -34,11 +35,10 @@ class LoginPageLocators:
     CONFIRMED_PASSWORD_FIELD = (By.CSS_SELECTOR, '#id_registration-password2')
     BUTTON_CONFIRMED = (By.CSS_SELECTOR, '#register_form .btn')
 
+
 class Links:
     LOGIN_LINK = "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/"
     START_LINK = "http://selenium1py.pythonanywhere.com/"
     CODERS_AT_WORK_BOOK_LINK = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/?promo=offer1"
     CITY_AND_STARS_BOOK_LINK = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     PUSSYFOOT_BOOK_LINK = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-age-of-the-pussyfoot_89/"
-
-#class BasketPageLocators:

@@ -1,5 +1,3 @@
-import time
-
 from .base_page import BasePage
 from .locators import BasketPageLocators
 from selenium.common.exceptions import NoSuchElementException
@@ -30,7 +28,14 @@ class BasketPage(BasePage):
         print(f"Name {empty_basket_text.text} is equal to 'Ваша корзина пуста'")
 
     def is_not_goods_in_basket(self):
-        self.is_not_goods_present(*BasketPageLocators.NO_GOODS_IN_BAKSET), "We have some goods in basket"
+        assert self.is_not_goods_present(*BasketPageLocators.NO_GOODS_IN_BAKSET), "We have some goods in basket"
+
+    def is_good_in_basket(self):
+        assert self.is_goods_present(*BasketPageLocators.NO_GOODS_IN_BAKSET), "We don't have goods in basket"
 
     def should_be_basket_url(self):
         assert "/basket" in self.browser.current_url, "URL is incorrect!"
+
+    def press_remove_button_in_basket_page(self):
+        button_remove = self.browser.find_element(*BasketPageLocators.REMOVE_BUTTON)
+        button_remove.click()

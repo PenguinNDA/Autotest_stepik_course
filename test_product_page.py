@@ -62,7 +62,7 @@ class TestLoginFromProductPage:
         page.go_to_login_page()
 
 
-@pytest.mark.need_review
+@pytest.mark.new
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     link = Links.CITY_AND_STARS_BOOK_LINK
     page = ProductPage(browser, link)  # Initialize page object
