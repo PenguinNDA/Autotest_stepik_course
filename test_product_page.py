@@ -1,6 +1,7 @@
 from .pages.product_page import ProductPage
 from .pages.basket_page import BasketPage
 from .pages.login_page import LoginPage
+from .pages.locators import Links
 import pytest
 import time
 
@@ -10,7 +11,7 @@ import time
                                   8, 9])
 @pytest.mark.need_review
 def test_guest_can_add_product_to_basket(browser, link):
-    link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1'
+    link = f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{link}"
     page = ProductPage(browser, link)
     page.open()
     page.add_to_basket()
@@ -21,7 +22,7 @@ def test_guest_can_add_product_to_basket(browser, link):
 
 @pytest.mark.xfail
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
-    link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1'
+    link = Links.CODERS_AT_WORK_BOOK_LINK
     page = ProductPage(browser, link)
     page.open()
     page.add_to_basket()
@@ -29,7 +30,7 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
 
 
 def test_guest_cant_see_success_message(browser):
-    link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1'
+    link = Links.CODERS_AT_WORK_BOOK_LINK
     page = ProductPage(browser, link)
     page.open()
     page.is_book_name_after_add_present()
@@ -37,7 +38,7 @@ def test_guest_cant_see_success_message(browser):
 
 @pytest.mark.xfail
 def test_message_disappeared_after_adding_product_to_basket(browser):
-    link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1'
+    link = Links.CODERS_AT_WORK_BOOK_LINK
     page = ProductPage(browser, link)
     page.open()
     page.add_to_basket()
@@ -48,14 +49,14 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
 class TestLoginFromProductPage:
 
     def test_guest_should_see_login_link_on_product_page(self, browser):
-        link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
+        link = Links.CITY_AND_STARS_BOOK_LINK
         page = ProductPage(browser, link)
         page.open()
         page.should_be_login_link()
 
     @pytest.mark.need_review
     def test_guest_can_go_to_login_page_from_product_page(self, browser):
-        link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
+        link = Links.CITY_AND_STARS_BOOK_LINK
         page = ProductPage(browser, link)
         page.open()
         page.go_to_login_page()
@@ -63,7 +64,7 @@ class TestLoginFromProductPage:
 
 @pytest.mark.need_review
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
-    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
+    link = Links.CITY_AND_STARS_BOOK_LINK
     page = ProductPage(browser, link)  # Initialize page object
     page.open()
     page.go_to_basket_page()
@@ -75,7 +76,7 @@ class TestUserAddToBasketFromProductPage:
 
     @pytest.fixture(scope="function", autouse=True)
     def setup_for_user_tests(self, browser):
-        link = "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/"
+        link = Links.LOGIN_LINK
         page = LoginPage(browser, link)
         page.open()
         email = str(time.time()) + "@fakemail.org"
@@ -84,14 +85,14 @@ class TestUserAddToBasketFromProductPage:
         page.should_be_authorized_user()
 
     def test_user_cant_see_success_message(self, browser):
-        link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1'
+        link = Links.CODERS_AT_WORK_BOOK_LINK
         page = ProductPage(browser, link)
         page.open()
         page.is_book_name_after_add_present()
 
     @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):
-        link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1'
+        link = Links.CODERS_AT_WORK_BOOK_LINK
         page = ProductPage(browser, link)
         page.open()
         page.add_to_basket()

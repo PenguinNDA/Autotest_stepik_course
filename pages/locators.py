@@ -32,3 +32,9 @@ class LoginPageLocators:
     PASSWORD_FIELD = (By.CSS_SELECTOR, '#id_registration-password1')
     CONFIRMED_PASSWORD_FIELD = (By.CSS_SELECTOR, '#id_registration-password2')
     BUTTON_CONFIRMED = (By.CSS_SELECTOR, '#register_form .btn')
+
+class Links:
+    LOGIN_LINK = "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/"
+    START_LINK = "http://selenium1py.pythonanywhere.com/"
+    CODERS_AT_WORK_BOOK_LINK = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/?promo=offer1"
+    CITY_AND_STARS_BOOK_LINK = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"

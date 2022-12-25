@@ -17,7 +17,8 @@ class ProductPage(BasePage):
 	def compare_prices(self):
 		self.browser.implicitly_wait(10)
 		book_price = self.browser.find_element(*ProductPageLocators.BOOK_PRICE)
-		book_price_after_add = self.browser.find_element(*ProductPageLocators.BOOK_PRICE)
+		book_price_after_add = self.browser.find_element(*ProductPageLocators.BOOK_PRICE_AFTER_ADD)
+		print("\nCompare prices")
 		assert book_price.text == book_price_after_add.text, "Price is not equal"
 		print(f"Price {book_price.text} is equal to {book_price_after_add.text}")
 
@@ -25,6 +26,7 @@ class ProductPage(BasePage):
 		self.browser.implicitly_wait(10)
 		book_name = self.browser.find_element(*ProductPageLocators.BOOK_NAME)
 		book_name_after_add = self.browser.find_element(*ProductPageLocators.BOOK_NAME_AFTER_ADD)
+		print("\nCompare names")
 		assert book_name.text == book_name_after_add.text, "Names is not equal"
 		print(f"Name {book_name.text} is equal to {book_name_after_add.text}")
 
