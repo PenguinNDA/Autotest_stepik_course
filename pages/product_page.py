@@ -1,6 +1,5 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
-import time
 
 
 class ProductPage(BasePage):
@@ -11,8 +10,16 @@ class ProductPage(BasePage):
 		print("\nFind button")
 		button.click()
 		print("\nClick button")
-		time.sleep(1)
+		self.browser.implicitly_wait(10)
 		BasePage.solve_quiz_and_get_code(self)
+
+	def add_to_basket_without_math(self):
+		self.browser.implicitly_wait(10)
+		button = self.browser.find_element(*ProductPageLocators.BASKET_BUTTON)
+		print("\nFind button")
+		button.click()
+		print("\nClick button")
+		self.browser.implicitly_wait(10)
 
 	def compare_prices(self):
 		self.browser.implicitly_wait(10)
@@ -35,3 +42,11 @@ class ProductPage(BasePage):
 
 	def is_book_name_disappeared_after_add(self):
 		assert self.is_disappeared(*ProductPageLocators.BOOK_NAME_AFTER_ADD), "Book name is incorrect"
+
+	def from_product_page_go_to_bakset(self): # use 'view basket' button after add good
+		self.browser.implicitly_wait(10)
+		button = self.browser.find_element(*ProductPageLocators.VIEW_BASKET_BUTTON)
+		print("\nFind button")
+		button.click()
+		print("\nClick button")
+		self.browser.implicitly_wait(10)

@@ -14,6 +14,7 @@ class ProductPageLocators:
     BOOK_PRICE = (By.CSS_SELECTOR, ".product_main .price_color")
     BOOK_NAME_AFTER_ADD = (By.CSS_SELECTOR, ".alert-success .alertinner strong")
     BOOK_PRICE_AFTER_ADD = (By.CSS_SELECTOR, ".alert-info .alertinner strong")
+    VIEW_BASKET_BUTTON = (By.CSS_SELECTOR, ".alertinner .btn-info:first-child")
 
 
 class BasePageLocators:
@@ -38,3 +39,6 @@ class Links:
     START_LINK = "http://selenium1py.pythonanywhere.com/"
     CODERS_AT_WORK_BOOK_LINK = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/?promo=offer1"
     CITY_AND_STARS_BOOK_LINK = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
+    PUSSYFOOT_BOOK_LINK = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-age-of-the-pussyfoot_89/"
+
+#class BasketPageLocators:

@@ -1,3 +1,5 @@
+import time
+
 from .base_page import BasePage
 from .locators import BasketPageLocators
 from selenium.common.exceptions import NoSuchElementException
@@ -29,3 +31,6 @@ class BasketPage(BasePage):
 
     def is_not_goods_in_basket(self):
         self.is_not_goods_present(*BasketPageLocators.NO_GOODS_IN_BAKSET), "We have some goods in basket"
+
+    def should_be_basket_url(self):
+        assert "/basket" in self.browser.current_url, "URL is incorrect!"
