@@ -27,6 +27,10 @@ class BasketPageLocators:
     EMPTY_BASKET_TEXT = (By.XPATH, '//*[@id="content_inner"]/p/text()')
     NO_GOODS_IN_BAKSET = (By.CSS_SELECTOR, ".basket-items")
     REMOVE_BUTTON = (By.XPATH, "//*[@class='inline']")
+    COUNT_FIELD = (By.CSS_SELECTOR, ".checkout-quantity .form-control")
+    UPDATE_BUTTON = (By.CSS_SELECTOR, ".checkout-quantity .btn")
+    SUM_FOR_GOODS = (By.XPATH, "//*[@id='basket_formset']/div/div/div[5]/p")
+    PRICE_FOR_GOOD = (By.XPATH, '//*[@id="basket_formset"]/div/div/div[4]/p')
 
 
 class LoginPageLocators:

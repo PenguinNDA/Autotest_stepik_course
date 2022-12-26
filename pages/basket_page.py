@@ -4,6 +4,9 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import random
+
+PRICE_FOR_BOOK = 26.99
 
 
 class BasketPage(BasePage):
@@ -39,3 +42,26 @@ class BasketPage(BasePage):
     def press_remove_button_in_basket_page(self):
         button_remove = self.browser.find_element(*BasketPageLocators.REMOVE_BUTTON)
         button_remove.click()
+
+    def send_number_of_goods_to_count_field(self, number):
+        count_field = self.browser.find_element(*BasketPageLocators.COUNT_FIELD)
+        count_field.clear()
+        count_field.send_keys(number)
+
+    def click_to_update_button(self):
+        update_button = self.browser.find_element(*BasketPageLocators.UPDATE_BUTTON)
+        update_button.click()
+
+    @staticmethod
+    def choose_randomly_our_goods():
+        list_of_goods = [2, 3, 4, 5]
+        number_of_goods = random.choice(list_of_goods)
+        return number_of_goods
+
+    def our_price_is_correct(self):
+        assert str(PRICE_FOR_BOOK) \
+               in self.browser.find_element(*BasketPageLocators.PRICE_FOR_GOOD).text, "Our price is incorrect "
+
+    def our_sum_is_correct(self, number_of_goods):
+        assert str(number_of_goods * PRICE_FOR_BOOK) \
+               in self.browser.find_element(*BasketPageLocators.SUM_FOR_GOODS).text, "Sum of our goods is incorrect"
