@@ -62,7 +62,6 @@ class TestLoginFromProductPage:
         page.go_to_login_page()
 
 
-@pytest.mark.new
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     link = Links.CITY_AND_STARS_BOOK_LINK
     page = ProductPage(browser, link)  # Initialize page object
@@ -98,3 +97,17 @@ class TestUserAddToBasketFromProductPage:
         page.add_to_basket()
         page.compare_names()
         page.compare_prices()
+
+
+def test_check_price_without_tax_at_book_page(browser):
+    link = Links.CODERS_AT_WORK_BOOK_LINK
+    page = ProductPage(browser, link)
+    page.open()
+    page.check_price_without_tax()
+
+
+def test_check_price_with_tax_at_book_page(browser):
+    link = Links.CODERS_AT_WORK_BOOK_LINK
+    page = ProductPage(browser, link)
+    page.open()
+    page.check_price_with_tax()

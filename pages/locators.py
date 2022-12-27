@@ -15,6 +15,8 @@ class ProductPageLocators:
     BOOK_NAME_AFTER_ADD = (By.CSS_SELECTOR, ".alert-success .alertinner strong")
     BOOK_PRICE_AFTER_ADD = (By.CSS_SELECTOR, ".alert-info .alertinner strong")
     VIEW_BASKET_BUTTON = (By.CSS_SELECTOR, ".alertinner .btn-info:first-child")
+    PRICE_WITHOUT_TAX = (By.XPATH, "//table/tbody/tr[3]/td")
+    PRICE_WITH_TAX = (By.XPATH, "//table/tbody/tr[4]/td")
 
 
 class BasePageLocators:

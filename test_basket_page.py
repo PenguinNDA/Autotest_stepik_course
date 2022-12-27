@@ -51,7 +51,6 @@ class TestBasketPage:
         basket_page.our_price_is_correct()
         basket_page.our_sum_is_correct(number_of_goods)
 
-    @pytest.mark.new
     def test_check_price_for_one_good_in_basket(self, browser):
         link = Links.PUSSYFOOT_BOOK_LINK
         page = ProductPage(browser, link)

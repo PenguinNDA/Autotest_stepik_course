@@ -4,49 +4,64 @@ from .locators import ProductPageLocators
 
 class ProductPage(BasePage):
 
-	def add_to_basket(self):
-		self.browser.implicitly_wait(10)
-		button = self.browser.find_element(*ProductPageLocators.BASKET_BUTTON)
-		print("\nFind button")
-		button.click()
-		print("\nClick button")
-		self.browser.implicitly_wait(10)
-		BasePage.solve_quiz_and_get_code(self)
+    def add_to_basket(self):
+        self.browser.implicitly_wait(10)
+        button = self.browser.find_element(*ProductPageLocators.BASKET_BUTTON)
+        print("\nFind button")
+        button.click()
+        print("\nClick button")
+        self.browser.implicitly_wait(10)
+        BasePage.solve_quiz_and_get_code(self)
 
-	def add_to_basket_without_math(self):
-		self.browser.implicitly_wait(10)
-		button = self.browser.find_element(*ProductPageLocators.BASKET_BUTTON)
-		print("\nFind button")
-		button.click()
-		print("\nClick button")
-		self.browser.implicitly_wait(10)
+    def add_to_basket_without_math(self):
+        self.browser.implicitly_wait(10)
+        button = self.browser.find_element(*ProductPageLocators.BASKET_BUTTON)
+        print("\nFind button")
+        button.click()
+        print("\nClick button")
+        self.browser.implicitly_wait(10)
 
-	def compare_prices(self):
-		self.browser.implicitly_wait(10)
-		book_price = self.browser.find_element(*ProductPageLocators.BOOK_PRICE)
-		book_price_after_add = self.browser.find_element(*ProductPageLocators.BOOK_PRICE_AFTER_ADD)
-		print("\nCompare prices")
-		assert book_price.text == book_price_after_add.text, "Price is not equal"
-		print(f"Price {book_price.text} is equal to {book_price_after_add.text}")
+    def compare_prices(self):
+        self.browser.implicitly_wait(10)
+        book_price = self.browser.find_element(*ProductPageLocators.BOOK_PRICE)
+        book_price_after_add = self.browser.find_element(*ProductPageLocators.BOOK_PRICE_AFTER_ADD)
+        print("\nCompare prices")
+        assert book_price.text == book_price_after_add.text, "Price is not equal"
+        print(f"Price {book_price.text} is equal to {book_price_after_add.text}")
 
-	def compare_names(self):
-		self.browser.implicitly_wait(10)
-		book_name = self.browser.find_element(*ProductPageLocators.BOOK_NAME)
-		book_name_after_add = self.browser.find_element(*ProductPageLocators.BOOK_NAME_AFTER_ADD)
-		print("\nCompare names")
-		assert book_name.text == book_name_after_add.text, "Names is not equal"
-		print(f"Name {book_name.text} is equal to {book_name_after_add.text}")
+    def compare_names(self):
+        self.browser.implicitly_wait(10)
+        book_name = self.browser.find_element(*ProductPageLocators.BOOK_NAME)
+        book_name_after_add = self.browser.find_element(*ProductPageLocators.BOOK_NAME_AFTER_ADD)
+        print("\nCompare names")
+        assert book_name.text == book_name_after_add.text, "Names is not equal"
+        print(f"Name {book_name.text} is equal to {book_name_after_add.text}")
 
-	def is_book_name_after_add_present(self):
-		assert self.is_not_element_present(*ProductPageLocators.BOOK_NAME_AFTER_ADD), "Book name is incorrect"
+    def is_book_name_after_add_present(self):
+        assert self.is_not_element_present(*ProductPageLocators.BOOK_NAME_AFTER_ADD), "Book name is incorrect"
 
-	def is_book_name_disappeared_after_add(self):
-		assert self.is_disappeared(*ProductPageLocators.BOOK_NAME_AFTER_ADD), "Book name is incorrect"
+    def is_book_name_disappeared_after_add(self):
+        assert self.is_disappeared(*ProductPageLocators.BOOK_NAME_AFTER_ADD), "Book name is incorrect"
 
-	def from_product_page_go_to_bakset(self): # use 'view basket' button after add good
-		self.browser.implicitly_wait(10)
-		button = self.browser.find_element(*ProductPageLocators.VIEW_BASKET_BUTTON)
-		print("\nFind button")
-		button.click()
-		print("\nClick button")
-		self.browser.implicitly_wait(10)
+    def from_product_page_go_to_bakset(self):  # use 'view basket' button after add good
+        self.browser.implicitly_wait(10)
+        button = self.browser.find_element(*ProductPageLocators.VIEW_BASKET_BUTTON)
+        print("\nFind button")
+        button.click()
+        print("\nClick button")
+
+    def check_price_without_tax(self):
+        self.browser.implicitly_wait(5)
+        assert str(19.99) in str(self.browser.find_element(*ProductPageLocators.PRICE_WITHOUT_TAX).text), \
+            "Price is incorrect"
+        print(
+            f"Price {19.99} is not equal {str(self.browser.find_element(*ProductPageLocators.PRICE_WITHOUT_TAX).text)} "
+            f"is incorrect")
+
+    def check_price_with_tax(self):
+        self.browser.implicitly_wait(5)
+        assert str(19.99) in str(self.browser.find_element(*ProductPageLocators.PRICE_WITH_TAX).text), \
+            "Price is incorrect"
+        print(
+            f"Price {19.99} is not equal {str(self.browser.find_element(*ProductPageLocators.PRICE_WITH_TAX).text)} "
+            f"is incorrect")
