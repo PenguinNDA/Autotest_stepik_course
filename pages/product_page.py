@@ -65,3 +65,53 @@ class ProductPage(BasePage):
         print(
             f"Price {19.99} is not equal {str(self.browser.find_element(*ProductPageLocators.PRICE_WITH_TAX).text)} "
             f"is incorrect")
+
+    def check_upc_field(self):
+        self.browser.implicitly_wait(5)
+        assert str("UPC") in str(self.browser.find_element(*ProductPageLocators.UPC_FIELD).text), \
+            "Field 'UPC' not found"
+        print(
+            f"Field {'UPC'} is not equal {str(self.browser.find_element(*ProductPageLocators.UPC_FIELD).text)} "
+            f"is incorrect")
+
+    def check_product_type_field(self):
+        assert str("Product Type") in str(self.browser.find_element(*ProductPageLocators.PRODUCT_TYPE_FIELD).text), \
+            "Field 'Product Type' not found"
+        print(
+            f"Field {'Product Type'} is not equal "
+            f"{str(self.browser.find_element(*ProductPageLocators.PRODUCT_TYPE_FIELD).text)}")
+
+    def check_price_with_tax_field(self):
+        assert str("Price (excl. tax)") in str(self.browser.find_element(*ProductPageLocators.PRICE_WITH_TAX_FIELD).text), \
+            "Field 'Price (excl. tax)' not found"
+        print(
+            f"Field {'Price (excl. tax)'} is not equal "
+            f"{str(self.browser.find_element(*ProductPageLocators.PRICE_WITH_TAX_FIELD).text)}")
+
+    def check_price_without_tax_field(self):
+        assert str("Price (incl. tax)") in str(self.browser.find_element(*ProductPageLocators.PRICE_WITHOUT_TAX_FIELD).text), \
+            "Field 'Price (incl. tax)' not found"
+        print(
+            f"Field {'Price (incl. tax)'} is not equal "
+            f"{str(self.browser.find_element(*ProductPageLocators.PRICE_WITHOUT_TAX_FIELD).text)}")
+
+    def check_tax_field(self):
+        assert str("Tax") in str(self.browser.find_element(*ProductPageLocators.TAX_FIELD).text), \
+            "Field 'Tax' not found"
+        print(
+            f"Field {'Tax'} is not equal "
+            f"{str(self.browser.find_element(*ProductPageLocators.TAX_FIELD).text)}")
+
+    def check_availability_field(self):
+        assert str("Availability") in str(self.browser.find_element(*ProductPageLocators.AVAILABILITY_FIELD).text), \
+            "Field 'Availability' not found"
+        print(
+            f"Field {'Availability'} is not equal "
+            f"{str(self.browser.find_element(*ProductPageLocators.AVAILABILITY_FIELD).text)}")
+
+    def check_number_of_reviews_filed(self):
+        assert str("Number of reviews") in str(self.browser.find_element(*ProductPageLocators.NUMBER_OF_REVIEWS_FIELD).text), \
+            "Field 'Number of reviews' not found"
+        print(
+            f"Field {'Number of reviews'} is not equal "
+            f"{str(self.browser.find_element(*ProductPageLocators.NUMBER_OF_REVIEWS_FIELD).text)}")

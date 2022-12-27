@@ -17,6 +17,13 @@ class ProductPageLocators:
     VIEW_BASKET_BUTTON = (By.CSS_SELECTOR, ".alertinner .btn-info:first-child")
     PRICE_WITHOUT_TAX = (By.XPATH, "//table/tbody/tr[3]/td")
     PRICE_WITH_TAX = (By.XPATH, "//table/tbody/tr[4]/td")
+    UPC_FIELD = (By.XPATH, "//table/tbody/tr[1]/th")
+    PRODUCT_TYPE_FIELD = (By.XPATH, "//table/tbody/tr[2]/th")
+    PRICE_WITH_TAX_FIELD = (By.XPATH, "//table/tbody/tr[3]/th")
+    PRICE_WITHOUT_TAX_FIELD = (By.XPATH, "//table/tbody/tr[4]/th")
+    TAX_FIELD = (By.XPATH, "//table/tbody/tr[5]/th")
+    AVAILABILITY_FIELD = (By.XPATH, "//table/tbody/tr[6]/th")
+    NUMBER_OF_REVIEWS_FIELD = (By.XPATH, "//table/tbody/tr[7]/th")
 
 
 class BasePageLocators:
