@@ -98,6 +98,12 @@ class TestUserAddToBasketFromProductPage:
         page.compare_names()
         page.compare_prices()
 
+    def test_user_check_number_of_reviews_field_in_product_information(self, browser):
+        link = Links.CODERS_AT_WORK_BOOK_LINK
+        page = ProductPage(browser, link)
+        page.open()
+        page.check_number_of_reviews_filed()
+
 
 def test_check_price_without_tax_at_book_page(browser):
     link = Links.CODERS_AT_WORK_BOOK_LINK
@@ -112,15 +118,48 @@ def test_check_price_with_tax_at_book_page(browser):
     page.open()
     page.check_price_with_tax()
 
+
 @pytest.mark.new
-def test_check_all_fields_in_product_information(browser):
-    link = Links.CODERS_AT_WORK_BOOK_LINK
-    page = ProductPage(browser, link)
-    page.open()
-    page.check_upc_field()
-    page.check_product_type_field()
-    page.check_price_with_tax_field()
-    page.check_price_without_tax_field()
-    page.check_tax_field()
-    page.check_availability_field()
-    page.check_number_of_reviews_filed()
+class TestCheckProductInformationFields:
+
+    def test_check_upc_field_in_product_information(self, browser):
+        link = Links.CODERS_AT_WORK_BOOK_LINK
+        page = ProductPage(browser, link)
+        page.open()
+        page.check_upc_field()
+
+    def test_check_product_type_field_in_product_information(self, browser):
+        link = Links.CODERS_AT_WORK_BOOK_LINK
+        page = ProductPage(browser, link)
+        page.open()
+        page.check_product_type_field()
+
+    def test_check_price_with_tax_field_in_product_information(self, browser):
+        link = Links.CODERS_AT_WORK_BOOK_LINK
+        page = ProductPage(browser, link)
+        page.open()
+        page.check_price_with_tax_field()
+
+    def test_check_price_without_tax_field_in_product_information(self, browser):
+        link = Links.CODERS_AT_WORK_BOOK_LINK
+        page = ProductPage(browser, link)
+        page.open()
+        page.check_price_without_tax_field()
+
+    def test_check_tax_field_in_product_information(self, browser):
+        link = Links.CODERS_AT_WORK_BOOK_LINK
+        page = ProductPage(browser, link)
+        page.open()
+        page.check_tax_field()
+
+    def test_check_availability_field_in_product_information(self, browser):
+        link = Links.CODERS_AT_WORK_BOOK_LINK
+        page = ProductPage(browser, link)
+        page.open()
+        page.check_availability_field()
+
+    def test_check_number_of_reviews_field_in_product_information(self, browser):
+        link = Links.CODERS_AT_WORK_BOOK_LINK
+        page = ProductPage(browser, link)
+        page.open()
+        page.check_number_of_reviews_filed()
